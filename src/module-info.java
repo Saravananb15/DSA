@@ -4,5 +4,5 @@
 /**
  * 
  */
-module leetcode {
+module DSA {
 }

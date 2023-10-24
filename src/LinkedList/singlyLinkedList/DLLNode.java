@@ -27,7 +27,30 @@ public class DLLNode {
 		tail.next = node;
 		tail = node;
 	}
+	
+	public void insertAfterVal(int val, int insertVal) {
+		Node temp = head;
+		while(temp != null) {
+			if(temp.val == val) {
+				Node node = new Node(insertVal);
+				temp.next.prev = node;
+				node.next = temp.next;
+				temp.next= node;
+				node.prev = temp;
+			}
+			temp= temp.next;
+		}
+	}
 
+	public void delete(int val) {
+		Node temp = head;
+		while(temp != null) {
+			if(temp.val == val) {
+				temp = temp.next;
+			}
+			temp = temp.next;
+		}
+	}
 	public void display() {
 		Node temp = head;
 		while (temp != null) {
@@ -49,6 +72,15 @@ public class DLLNode {
 	public void displayPrevTail() {
 		Node temp = tail;
 		System.out.println(temp.prev.val);
+	}
+	public void displayPrev(int val) {
+		Node temp = head;
+		while(temp != null) {
+			if(temp.val == val) {
+				System.out.println(temp.prev.val);
+			}
+			temp= temp.next;
+		}
 	}
 
 	public class Node {

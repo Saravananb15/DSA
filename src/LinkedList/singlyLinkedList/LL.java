@@ -4,6 +4,7 @@ public class LL {
 
 	private Node head;
 	private Node tail;
+	private Node prev;
 	private int size;
 
 	public LL() {
@@ -64,6 +65,8 @@ public class LL {
 		size--;
 		return val;
 	}
+	
+	
 	public Node get(int index) {
 		if(index == 0) return head;
 		Node node = head;

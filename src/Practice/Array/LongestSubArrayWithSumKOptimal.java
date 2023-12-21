@@ -7,20 +7,20 @@ public class LongestSubArrayWithSumKOptimal {
 		LongestSubArrayWithSumKOptimal longest = new LongestSubArrayWithSumKOptimal();
 		longest.LongestSubArray(arr, k);
 	}
-	public void LongestSubArray(int arr[],int k) {
+	public void LongestSubArray(int nums[],int k) {
 		int left=0,right=0;
 		int maxLen = 0;
-		long sum = arr[left];
+		long sum = nums[left];
 		
-		while(right < arr.length) {
+		while(right < nums.length) {
 			while(left <= right  && sum >k ) {
-				sum -= arr[left];
+				sum -= nums[left];
 				left++;
 			}
 			
 			if(sum == k ) maxLen = Math.max(maxLen, right-left+1);
 			right++;
-			if(right < arr.length) sum+= arr[right];
+			if(right < nums.length) sum+= nums[right];
 		}
 		System.out.println(maxLen);
 	}

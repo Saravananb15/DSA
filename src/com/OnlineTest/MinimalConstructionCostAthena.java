@@ -17,19 +17,31 @@ public class MinimalConstructionCostAthena {
 		System.out.println(minimal.minimalCost(min));
 	}
 	public int minimalCost(List<List<Integer>> cost) {
-		int min[] = new int[cost.size()];
+//		int min[] = new int[cost.size()];
+		int sum = Integer.MAX_VALUE;
+		int result = 0;
 		for(int i=0;i<cost.size();i++) {
 			for(int j=0;j<cost.get(i).size();j++) {
-				int curr = cost.get(i).get(j);
-				if(curr < min[j] || min[j]==0) {
-					min[j]=cost.get(i).get(j);
-				}
+				int curr = cost.get(j).get(i);
+//				if(curr < min[j] || min[j]==0) {
+//					min[j]=cost.get(i).get(j);  
+//				}\
+				sum = Math.min(sum, curr);
 			}
+			result+=sum;
+			sum=Integer.MAX_VALUE;
 		}
-		int result = 0;
-		for(int i=0;i<min.length;i++) {
-			result += min[i];
-		}
+//		for(int i=0;i<min.length;i++) {
+//			result += min[i];
+//		}
 		return result;
 	}
 }
+
+
+
+
+
+/// 1 2 3 = 1
+/// 1 2 3 = 1
+/// 2 3 2 = 2

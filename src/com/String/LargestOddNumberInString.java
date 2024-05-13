@@ -2,18 +2,23 @@ package com.String;
 
 public class LargestOddNumberInString {
 	public static void main(String[] args) {
-		System.out.println(largestOddNumber("52"));
+		System.out.println(largestOddNumber("589"));
 	}
 
 	public static String largestOddNumber(String num) {
-		int largest =0;
-		for(int i=0;i<num.length();i++) {
-			char ch = num.charAt(i);
-			int StringToInt = (int) ch;
-			largest = Math.max(largest, StringToInt);
+		StringBuilder sb = new StringBuilder(num);
+		int op =0;
+		for(int i=num.length()-1;i>=0;i--) {
+			if(num.charAt(i)%2!=0) {
+				op =1;
+				sb.setLength(i+1);
+				break;
+			}
 		}
-		String ans = "";
-		ans+= largest;
-		return ans;
+		if(op==1) {
+			return sb.toString();
+		}else {
+			return "";
+		}
 	}
 }
